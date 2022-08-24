@@ -26,6 +26,8 @@ class Solution {
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
 
         // Initialize the ListNode
+        // Note that we use a dummy head to simplify the code. 
+        // Without a dummy head, you would have to write extra conditional statements to initialize the head's value.
         ListNode *head = new ListNode(0);
         // Assigning a node to keep adding nodes
         ListNode *curr = head;
