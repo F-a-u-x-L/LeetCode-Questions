@@ -1,41 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<cstring>
-#include<unordered_set>
 #include<unordered_map>
 using namespace std;
-
-
-// Time complexity of O(N^2)
-
-class Solution {
-
-    public:
-
-    int lengthOfLongestSubstring(string s) {
-        
-        int length = 0;
-        int res = 0;
-        int k = 0;
-        unordered_set<char> tracker;
-
-        for(int i=k; i<s.length(); i++) {
-            
-            if(tracker.find(s[i]) == tracker.end()) {
-                tracker.insert(s[i]);
-                length++;
-                res = max(res, length);
-            } else {
-                length = 0;
-                tracker.clear();
-                k++;
-                i=k-1;
-            }
-        }
-
-        return res;
-    }
-};
 
 
 
