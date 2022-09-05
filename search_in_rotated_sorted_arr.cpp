@@ -24,6 +24,9 @@ class Solution {
                 return mid;
             }
 
+            // Here we check which part of the array is sorted ie before mid part or after mid part
+            // Then we check if the target element lies within that selected sorted part or not
+            // We adjust the start/end accordingly 
             if(nums[start] < nums[mid]) 
             {
                 if(target < nums[mid] && target >= nums[start]) 
