@@ -44,3 +44,39 @@ class Solution {
         return ans;
     }
 };
+
+
+// Alternate way    -   using binary search all the way
+class Solution {
+
+    public:
+
+    int BinarySearch(vector<int> &nums, int target, string find) {
+        int start = 0;
+        int end = nums.size() - 1;
+        int mid;
+        int result = -1;
+
+        while(start <= end) {
+            mid = (start + end) / 2;
+
+            if(nums[mid] == target) {
+                result = mid;
+                (find=="FIRST") ? end = mid-1 : start = mid+1;
+            }
+            else if(nums[mid] > target) {
+                end = mid-1;
+            }
+            else {
+                start = mid + 1;
+            }
+        }
+
+        return result;
+    }
+
+    vector<int> searchRange(vector<int> &nums, int target) {
+
+        return {BinarySearch(nums, target, "FIRST"), BinarySearch(nums, target, "SECOND")};
+    }
+};
