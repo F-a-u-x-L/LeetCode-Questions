@@ -18,6 +18,10 @@ public:
     }
 };
 
+
+
+// Iteravtive Solution
+
 class Solution
 {
 
@@ -47,6 +51,34 @@ public:
             track[ptr]->random = track[ptr->random];
             ptr = ptr->next;
         }
+
+        return track[head];
+    }
+};
+
+
+
+// Recursive Solution
+
+class Solution {
+
+    public:
+
+    unordered_map<Node*, Node*> track;
+
+    Node *copyRandomList(Node *head) {
+
+        if(!head) {
+            return NULL;
+        }
+
+        if(track[head]) {
+            return track[head];
+        }
+
+        track[head] = new Node(head->val);
+        track[head]->next = copyRandomList(head->next);
+        track[head]->random = copyRandomList(head->random);
 
         return track[head];
     }
